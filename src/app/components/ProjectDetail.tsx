@@ -1,12 +1,12 @@
 import { useParams, Link } from "react-router";
 import { DynamicImage } from "./DynamicImage";
-import { MtechHero } from "./MtechHero";
+import { IsiipeHero } from "./IsiipeHero";
 
 const image_d8324035aea49e978f32e461ee7c6147c00a22a1 = "https://images.unsplash.com/photo-1740721455292-e5cd29544381?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsJTIwZGFyayUyMFVJJTIwZGVzaWduJTIwbW9ja3VwJTIwbGFwdG9wJTIwc2NyZWVufGVufDF8fHx8MTc3MzI3MDc5NXww&ixlib=rb-4.1.0&q=80&w=1080";
-const img1 = "https://images.unsplash.com/photo-1664748512003-8820b08d8161?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwZGVzaWduJTIwc2NyZWVuc2hvdCUyMGxhcHRvcHxlbnwxfHx8fDE3NzMyNTc2Njh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
-const image_cdceaf3e27f7c3dfef118a022ce85dc380a4ed2d = "https://images.unsplash.com/photo-1761122827167-159d1d272313?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkZXZlbG9wbWVudCUyMFVJJTIwd2lyZWZyYW1lfGVufDF8fHx8MTc3MzI1NzY2OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
-const image_326449581abb8f55e359bbc28dfe22cfbea9a16b = "https://images.unsplash.com/photo-1762330463863-a6a399beb5ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3ZWJzaXRlJTIwaG9tZXBhZ2UlMjBtb2NrdXB8ZW58MXx8fHwxNzczMjU3NjY5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
-const image_6b30ebb3d5aa435170cd5a8a35203171ac3f8bd6 = "https://images.unsplash.com/photo-1770012977129-19f856a1f935?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwaW50ZXJmYWNlJTIwZGVzaWduJTIwZGFya3xlbnwxfHx8fDE3NzMyNTc2Njl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
+const isiipeHomeImage = "/images/isiipe-home.png";
+const isiipeBiographyImage = "/images/isiipe-biography.png";
+const isiipeGalleryImage = "/images/isiipe-gallery.png";
+const isiipeContactImage = "/images/isiipe-contact.png";
 
 // ---------- project data ----------
 
@@ -24,16 +24,21 @@ interface ProjectData {
 }
 
 const PROJECTS: Record<string, ProjectData> = {
-  mtech: {
+  "isiipe-showcase": {
     title: "ISIIPE",
     subtitle: "Digital Presence for Community",
     category: ["WEB DEVELOPMENT", "VOLUNTEER"],
     year: "2025",
     type: "VOLUNTEER WORK",
     description:
-      "MTECH required a comprehensive digital overhaul to better serve their community. The UI/UX approach centered on building an elegant, highly accessible platform that prioritizes clear navigation and seamless user engagement. The result is a modern digital presence that lets the community and its mission take center stage.",
-    heroComponent: undefined, // uses MtechHero
-    galleryImages: [img1, image_cdceaf3e27f7c3dfef118a022ce85dc380a4ed2d, image_326449581abb8f55e359bbc28dfe22cfbea9a16b, image_6b30ebb3d5aa435170cd5a8a35203171ac3f8bd6],
+      "ISIIPE required a comprehensive digital overhaul to better serve their community. The UI/UX approach centered on building an elegant, highly accessible platform that prioritizes clear navigation and seamless user engagement. The result is a modern digital presence that lets the community and its mission take center stage.",
+    heroComponent: undefined, // uses IsiipeHero
+    galleryImages: [
+      isiipeHomeImage,
+      isiipeBiographyImage,
+      isiipeGalleryImage,
+      isiipeContactImage,
+    ],
     nextProject: { title: "ISIIPE", slug: "isiipe" },
   },
   isiipe: {
@@ -45,7 +50,12 @@ const PROJECTS: Record<string, ProjectData> = {
     description:
       "isiipe required a tailored personal website design for Selam Tesfaye to elevate her digital footprint. The UI/UX approach centered on building an elegant, highly accessible platform that prioritizes clear navigation and seamless user engagement. The result is a timeless digital presence that lets her work and personality take center stage.",
     heroImage: undefined,
-    galleryImages: [img1, image_cdceaf3e27f7c3dfef118a022ce85dc380a4ed2d, image_326449581abb8f55e359bbc28dfe22cfbea9a16b, image_6b30ebb3d5aa435170cd5a8a35203171ac3f8bd6],
+    galleryImages: [
+      isiipeHomeImage,
+      isiipeBiographyImage,
+      isiipeGalleryImage,
+      isiipeContactImage,
+    ],
     nextProject: { title: "AETHER UI", slug: "aether-ui" },
   },
   "aether-ui": {
@@ -106,7 +116,7 @@ const PROJECTS: Record<string, ProjectData> = {
       "Dark-themed portfolio template designed for photographers and visual artists. Emphasis on negative space and content hierarchy creates an immersive viewing experience that foregrounds the work itself.",
     heroImage: "https://images.unsplash.com/photo-1688141585146-1fb4a1358c87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGdlb21ldHJpYyUyMGRhcmslMjBhcnR3b3JrfGVufDF8fHx8MTc3MzE0ODQ3NXww&ixlib=rb-4.1.0&q=80&w=1080",
     galleryImages: [],
-    nextProject: { title: "MTECH", slug: "mtech" },
+    nextProject: { title: "ISIIPE", slug: "isiipe" },
   },
 };
 
@@ -156,7 +166,7 @@ export function ProjectDetail() {
         {/* 3. Hero Image Block */}
         <div className="w-full flex justify-center bg-[#d9d9d9] px-[0px] py-[30px]">
           {isIsiipe ? (
-            <MtechHero />
+            <IsiipeHero />
           ) : project.heroImage ? (
             <div className="w-[95%] mx-auto max-w-[1400px] aspect-video md:aspect-[21/9] relative overflow-hidden border-2 border-[#D9D9D9]">
               <DynamicImage

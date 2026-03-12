@@ -12,8 +12,7 @@ const PROJECTS = [
     description:
       "A modern web design and UI/UX project for ISIIPE. Focused on clean interfaces, intuitive user flows, and a polished client-facing digital experience.",
     tags: ["WEB DESIGN", "UI/UX", "CLIENT"],
-    image:
-      "https://images.unsplash.com/photo-1762330463863-a6a399beb5ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3ZWIlMjBkZXNpZ24lMjBVSSUyMG1vY2t1cCUyMGRhcmslMjBtaW5pbWFsfGVufDF8fHx8MTc3MzI4NzA5NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    image: "/images/isiipe-gallery.png",
   },
 ];
 
@@ -107,9 +106,10 @@ export function Work() {
             {/* Image */}
             <div className="relative overflow-hidden mb-5 aspect-[4/3] bg-[#f0f0f0]">
               <DynamicImage
-                src={project.image}
+                slotId={`work-${project.slug}-cover`}
+                fallbackSrc={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+                className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
               />
               <div
                 className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-500"
