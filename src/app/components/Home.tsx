@@ -45,9 +45,7 @@ export function Home() {
                   lineHeight: 1.59,
                   letterSpacing: "-0.27px",
                 }}
-              >
-                {`I believe creativity isn't just a skill, it's a mindset. Born from a passion for bold ideas and beautifully crafted storytelling, I collaborate with visionary clients to shape identities at the intersection of art and innovation.`}
-              </p>
+              >I don't really see design as just a set of tools—it's how I approach problem-solving. I'm driven by a love for 2D animation and clean UI/UX, and I enjoy collaborating with people to build apps that don't just look good, but actually tell a story and feel great to use.</p>
             </div>
           </div>
         </div>
