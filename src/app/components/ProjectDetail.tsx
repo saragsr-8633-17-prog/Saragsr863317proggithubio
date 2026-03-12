@@ -3,10 +3,10 @@ import { DynamicImage } from "./DynamicImage";
 import { IsiipeHero } from "./IsiipeHero";
 
 const image_d8324035aea49e978f32e461ee7c6147c00a22a1 = "https://images.unsplash.com/photo-1740721455292-e5cd29544381?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsJTIwZGFyayUyMFVJJTIwZGVzaWduJTIwbW9ja3VwJTIwbGFwdG9wJTIwc2NyZWVufGVufDF8fHx8MTc3MzI3MDc5NXww&ixlib=rb-4.1.0&q=80&w=1080";
-const isiipeHomeImage = "/images/isiipe-home.png";
-const isiipeBiographyImage = "/images/isiipe-biography.png";
-const isiipeGalleryImage = "/images/isiipe-gallery.png";
-const isiipeContactImage = "/images/isiipe-contact.png";
+const isiipeHomeImage = "/images/isiipe-home.jpg";
+const isiipeBiographyImage = "/images/isiipe-biography.jpg";
+const isiipeGalleryImage = "/images/isiipe-gallery.jpg";
+const isiipeContactImage = "/images/isiipe-contact.jpg";
 
 // ---------- project data ----------
 

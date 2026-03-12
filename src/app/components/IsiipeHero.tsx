@@ -1,6 +1,6 @@
 import { DynamicImage } from "./DynamicImage";
 
-const heroImage = "/images/isiipe-home.png";
+const heroImage = "/images/isiipe-home.jpg";
 
 export function IsiipeHero() {
   return (
