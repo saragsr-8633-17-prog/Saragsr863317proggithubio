@@ -2,10 +2,9 @@ import { DynamicImage } from "./DynamicImage";
 
 const heroImage = "/images/psi-lab-cover.jpeg";
 
-export function PsiLabHeroLegacy() {
+export function PsiLabHero() {
   return (
     <div className="w-[95%] mx-auto max-w-[1400px] aspect-video md:aspect-[21/9] relative overflow-hidden border-2 border-[#D9D9D9]">
-      {/* Hero Image */}
       <DynamicImage
         slotId="psi-lab-hero"
         fallbackSrc={heroImage}

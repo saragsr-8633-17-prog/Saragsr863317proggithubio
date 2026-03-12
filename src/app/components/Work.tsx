@@ -5,24 +5,14 @@ import { Link } from "react-router";
 const PROJECTS = [
   {
     id: "01",
-    title: "ISIIPE",
-    slug: "isiipe",
+    title: "PSI-LAB",
+    slug: "psi-lab",
     category: "UI/UX DESIGN",
     year: "2026",
     description:
-      "A modern web design and UI/UX project for ISIIPE. Focused on clean interfaces, intuitive user flows, and a polished client-facing digital experience.",
+      "A modern web design and UI/UX project for PSI-LAB. Focused on clean interfaces, intuitive user flows, and a polished client-facing digital experience.",
     tags: ["WEB DESIGN", "UI/UX", "CLIENT"],
-    image: "/images/isiipe-home.png",
-  },
-  {
-    id: "02",
-    title: "PSI-LAB",
-    slug: "psi-lab",
-    category: "BRANDING",
-    year: "2026",
-    description: "Brand identity and brochure design for PSI-LAB, emphasizing clear communication and engaging print layouts.",
-    tags: ["BRANDING", "PRINT", "DESIGN"],
-    image: "/images/psi-lab-cover.png",
+    image: "/images/psi-lab-cover.jpeg",
   },
 ];
 
@@ -116,9 +106,10 @@ export function Work() {
             {/* Image */}
             <div className="relative overflow-hidden mb-5 aspect-[4/3] bg-[#f0f0f0]">
               <DynamicImage
-                src={project.image}
+                slotId={`work-${project.slug}-cover`}
+                fallbackSrc={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+                className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
               />
               <div
                 className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-500"
