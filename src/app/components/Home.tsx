@@ -2,7 +2,7 @@ import { useState } from "react";
 import { StarburstIcon } from "./StarburstIcon";
 
 const nameStyle = {
-  fontSize: "clamp(40px, 14vw, 190px)",
+  fontSize: "clamp(24px, 14vw, 190px)",
   fontWeight: 700,
   lineHeight: 0.68,
   letterSpacing: "clamp(-3px, -0.6vw, -8.54px)",
@@ -58,7 +58,7 @@ export function Home() {
           onMouseLeave={() => setNameHover(false)}
         >
           <h1
-            className="text-[#1a1a1a] font-['Montserrat',sans-serif] text-center uppercase whitespace-normal md:whitespace-nowrap relative px-3"
+            className="text-[#1a1a1a] font-['Montserrat',sans-serif] text-center uppercase whitespace-nowrap relative px-2"
             style={{
               ...nameStyle,
               transform: "translateZ(0)",
