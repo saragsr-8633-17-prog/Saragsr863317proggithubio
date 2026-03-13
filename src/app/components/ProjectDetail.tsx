@@ -13,9 +13,9 @@ const isiipeImage1 = "/images/selam1/Bio.jpg";
 const isiipeImage2 = "/images/selam1/Gallery.jpg";
 const isiipeImage3 = "/images/selam1/Contact.jpg";
 
-const vstuCoverImage = "/images/vstu/vstu%20cover.png";
-const vstuImage1 = "/images/vstu/vstu2.png";
-const vstuImage2 = "/images/vstu/vstu3.png";
+const vstuCoverImage = "/images/vstu/vstu-cover.png";
+const vstuImage1 = "/images/vstu/vstu-1.png";
+const vstuImage2 = "/images/vstu/vstu-2.png";
 
 // ---------- project data ----------
 
