@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { StarburstIcon } from "./StarburstIcon";
+import { projectId, publicAnonKey } from "../../../utils/supabase/info";
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -9,6 +10,8 @@ export function Contact() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [hoveredSocial, setHoveredSocial] = useState<string | null>(null);
 
   const handleChange = (
@@ -17,11 +20,37 @@ export function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setSending(true);
+    setErrorMessage(null);
+
+    try {
+      const res = await fetch(
+        `https://${projectId}.supabase.co/functions/v1/make-server-d0dae629/contact`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${publicAnonKey}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (!res.ok) {
+        throw new Error("Failed to submit message");
+      }
+
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 4000);
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error(error);
+      setErrorMessage("Could not send your message. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   const socials = [
@@ -177,13 +206,14 @@ export function Contact() {
 
                 <button
                   type="submit"
+                  disabled={sending}
                   className="group cursor-pointer border border-[#1a1a1a] bg-transparent hover:bg-[#1a1a1a] px-8 py-3 transition-all duration-300 flex items-center gap-3"
                 >
                   <span
                     className="text-[#1a1a1a] group-hover:text-[#ffffff] uppercase transition-colors duration-300"
                     style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.12em" }}
                   >
-                    Send Message
+                    {sending ? "Sending..." : "Send Message"}
                   </span>
                   <svg
                     className="text-[#1a1a1a] group-hover:text-[#ffffff] transition-colors duration-300"
@@ -201,6 +231,15 @@ export function Contact() {
                     <path d="m12 5 7 7-7 7" />
                   </svg>
                 </button>
+
+                {errorMessage && (
+                  <p
+                    className="text-[#b91c1c]"
+                    style={{ fontSize: "12px", fontWeight: 600 }}
+                  >
+                    {errorMessage}
+                  </p>
+                )}
               </form>
             )}
           </div>

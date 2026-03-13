@@ -213,4 +213,82 @@ app.post('/settings/images', async (c) => {
   }
 });
 
+// Contact form submission
+app.post('/contact', async (c) => {
+  try {
+    const body = await c.req.json();
+    const name = String(body?.name ?? '').trim();
+    const email = String(body?.email ?? '').trim();
+    const subject = String(body?.subject ?? '').trim();
+    const message = String(body?.message ?? '').trim();
+
+    if (!name || !email || !message) {
+      return c.json({ error: 'Missing required fields' }, 400);
+    }
+
+    const supabase = getSupabase();
+
+    const { data: currentData, error: readError } = await supabase
+      .from('kv_store_d0dae629')
+      .select('value')
+      .eq('key', 'contact_messages')
+      .maybeSingle();
+
+    if (readError) throw readError;
+
+    const messages = Array.isArray(currentData?.value) ? currentData.value : [];
+
+    messages.unshift({
+      id: crypto.randomUUID(),
+      name,
+      email,
+      subject,
+      message,
+      createdAt: new Date().toISOString(),
+    });
+
+    const capped = messages.slice(0, 500);
+
+    const { error: writeError } = await supabase
+      .from('kv_store_d0dae629')
+      .upsert({ key: 'contact_messages', value: capped });
+
+    if (writeError) throw writeError;
+
+    // Optional email notification via Resend
+    const resendApiKey = Deno.env.get('RESEND_API_KEY');
+    const contactToEmail = Deno.env.get('CONTACT_TO_EMAIL');
+    const contactFromEmail = Deno.env.get('CONTACT_FROM_EMAIL') || 'Portfolio Contact <onboarding@resend.dev>';
+
+    let emailed = false;
+    if (resendApiKey && contactToEmail) {
+      const emailRes = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${resendApiKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          from: contactFromEmail,
+          to: [contactToEmail],
+          subject: `[Portfolio Contact] ${subject || 'New message'}`,
+          text: `Name: ${name}\nEmail: ${email}\nSubject: ${subject || '(none)'}\n\nMessage:\n${message}`,
+        }),
+      });
+
+      if (emailRes.ok) {
+        emailed = true;
+      } else {
+        const errText = await emailRes.text();
+        console.error('Resend error:', errText);
+      }
+    }
+
+    return c.json({ success: true, emailed });
+  } catch (err: any) {
+    console.error('Contact submit error:', err);
+    return c.json({ error: err.message }, 500);
+  }
+});
+
 Deno.serve(app.fetch);
