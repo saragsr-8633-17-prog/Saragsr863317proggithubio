@@ -78,7 +78,20 @@ const PROJECTS: Record<string, ProjectData> = {
       isiipeImage2,
       isiipeImage3,
     ],
-    nextProject: { title: "PSI-LAB", slug: "psi-lab" },
+    nextProject: { title: "VSTU", slug: "vstu" },
+  },
+  vstu: {
+    title: "VSTU",
+    subtitle: "Campus Information, Simplified",
+    category: ["WEB DEVELOPMENT", "UI/UX DESIGN", "CONCEPT"],
+    year: "2026",
+    type: "CONCEPT",
+    description:
+      "VSTU explores a modern university web experience focused on clearer navigation, better content hierarchy, and faster access to student-facing resources.",
+    heroImage:
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600",
+    galleryImages: [],
+    nextProject: { title: "AETHER UI", slug: "aether-ui" },
   },
   "aether-ui": {
     title: "AETHER UI",

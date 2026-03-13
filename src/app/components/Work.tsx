@@ -25,6 +25,18 @@ const PROJECTS = [
     tags: ["BRANDING", "IDENTITY", "CLIENT"],
     image: "/images/psi-lab-cover.jpeg",
   },
+  {
+    id: "03",
+    title: "VSTU",
+    slug: "vstu",
+    category: "WEB DEVELOPMENT",
+    year: "2026",
+    description:
+      "A university-focused digital platform concept for VSTU, designed to improve content clarity, information flow, and student access across key services.",
+    tags: ["WEB DEVELOPMENT", "UI/UX", "CONCEPT"],
+    image:
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
+  },
 ];
 
 export function Work() {
