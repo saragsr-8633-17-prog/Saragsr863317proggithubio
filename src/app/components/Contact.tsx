@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { StarburstIcon } from "./StarburstIcon";
-import { projectId, publicAnonKey } from "../../../utils/supabase/info";
+
+const APPWRITE_CONTACT_URL = (import.meta as any).env?.VITE_APPWRITE_CONTACT_URL as string | undefined;
+const APPWRITE_API_KEY = (import.meta as any).env?.VITE_APPWRITE_API_KEY as string | undefined;
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -26,17 +28,18 @@ export function Contact() {
     setErrorMessage(null);
 
     try {
-      const res = await fetch(
-        `https://${projectId}.supabase.co/functions/v1/make-server-d0dae629/contact`,
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${publicAnonKey}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      if (!APPWRITE_CONTACT_URL) {
+        throw new Error("Missing VITE_APPWRITE_CONTACT_URL");
+      }
+
+      const res = await fetch(APPWRITE_CONTACT_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          ...(APPWRITE_API_KEY ? { "x-appwrite-key": APPWRITE_API_KEY } : {}),
+        },
+        body: JSON.stringify(formData),
+      });
 
       if (!res.ok) {
         throw new Error("Failed to submit message");
