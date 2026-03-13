@@ -16,6 +16,10 @@ const isiipeImage3 = "/images/selam1/Contact.jpg";
 const vstuCoverImage = "/images/vstu/vstu-cover.png";
 const vstuImage1 = "/images/vstu/vstu-1.png";
 const vstuImage2 = "/images/vstu/vstu-2.png";
+const vstuImage3 = "/images/vstu/1.png";
+const vstuImage4 = "/images/vstu/2.png";
+const vstuImage5 = "/images/vstu/3.png";
+const vstuImage6 = "/images/vstu/4.png";
 
 // ---------- project data ----------
 
@@ -93,7 +97,15 @@ const PROJECTS: Record<string, ProjectData> = {
     description:
       "UI/UX design for a modern university mobile app developed under Weyra Tech in partnership with Ethio-Telecom. The interface focuses on clearer navigation, better content hierarchy, and faster access to student-facing resources.",
       heroImage: vstuCoverImage,
-      galleryImages: [vstuCoverImage, vstuImage1, vstuImage2],
+      galleryImages: [
+        vstuCoverImage,
+        vstuImage1,
+        vstuImage2,
+        vstuImage3,
+        vstuImage4,
+        vstuImage5,
+        vstuImage6,
+      ],
     nextProject: { title: "AETHER UI", slug: "aether-ui" },
   },
   "aether-ui": {
