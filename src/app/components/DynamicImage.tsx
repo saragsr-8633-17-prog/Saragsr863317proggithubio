@@ -11,5 +11,5 @@ export function DynamicImage({ slotId, fallbackSrc, ...props }: DynamicImageProp
   const { getImage, isLoading } = useDynamicImage();
   const src = getImage(slotId, fallbackSrc);
 
-  return <ImageWithFallback src={src} {...props} />;
+  return <ImageWithFallback src={src} fallbackSrc={fallbackSrc} {...props} />;
 }
