@@ -13,10 +13,12 @@ const isiipeImage1 = "/images/selam1/Bio.jpg";
 const isiipeImage2 = "/images/selam1/Gallery.jpg";
 const isiipeImage3 = "/images/selam1/Contact.jpg";
 
-const vstuCoverImage = "/images/vstu/1.png";
-const vstuImage1 = "/images/vstu/2.png";
-const vstuImage2 = "/images/vstu/3.png";
-const vstuImage3 = "/images/vstu/4.png";
+const vstuCoverImage = "/images/vstu/vstu-cover.png";
+const vstuImage1 = "/images/vstu/vstu-1.png";
+const vstuImage2 = "/images/vstu/1.png";
+const vstuImage3 = "/images/vstu/2.png";
+const vstuImage4 = "/images/vstu/3.png";
+const vstuImage5 = "/images/vstu/4.png";
 
 // ---------- project data ----------
 
@@ -99,6 +101,8 @@ const PROJECTS: Record<string, ProjectData> = {
         vstuImage1,
         vstuImage2,
         vstuImage3,
+        vstuImage4,
+        vstuImage5,
       ],
     nextProject: { title: "AETHER UI", slug: "aether-ui" },
   },
@@ -217,7 +221,7 @@ export function ProjectDetail() {
                 slotId={`project-${slug}-hero`}
                 fallbackSrc={project.heroImage}
                 alt={`${project.title} hero`}
-                className={`w-full h-full ${slug === "isiipe" ? "object-contain" : "object-cover"}`}
+                className={`w-full h-full ${(slug === "isiipe" || slug === "vstu") ? "object-contain" : "object-cover"}`}
               />
             </div>
           ) : (
@@ -289,12 +293,15 @@ export function ProjectDetail() {
             {/* Center Stack (Images) */}
             <div className="flex flex-col gap-16 w-full max-w-4xl mx-auto z-10">
               {project.galleryImages.map((imgSrc, index) => (
-                <div key={index} className="aspect-[16/10] bg-gray-200 w-full overflow-hidden">
+                <div
+                  key={index}
+                  className={`${slug === "vstu" ? "" : "aspect-[16/10]"} bg-gray-200 w-full overflow-hidden`}
+                >
                   <DynamicImage
                     slotId={`project-${slug}-gallery-${index + 1}`}
                     fallbackSrc={imgSrc}
                     alt={`${project.title} detail ${index + 1}`}
-                    className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-all duration-700"
+                    className={`${slug === "vstu" ? "w-full h-auto object-contain" : "w-full h-full object-cover"} opacity-90 hover:opacity-100 transition-all duration-700`}
                   />
                 </div>
               ))}
