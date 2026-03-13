@@ -29,6 +29,7 @@ interface ProjectData {
   year: string;
   type: string;
   description: string;
+  websiteUrl?: string;
   heroComponent?: React.ReactNode;
   heroImage?: string;
   galleryImages: string[];
@@ -95,6 +96,7 @@ const PROJECTS: Record<string, ProjectData> = {
     type: "CLIENT WORK",
     description:
       "UI/UX design for a modern university mobile app developed under Weyra Tech in partnership with Ethio-Telecom. The interface focuses on clearer navigation, better content hierarchy, and faster access to student-facing resources.",
+      websiteUrl: "https://vstu.et/",
       heroImage: vstuCoverImage,
       galleryImages: [
         vstuCoverImage,
@@ -267,6 +269,21 @@ export function ProjectDetail() {
                 <span className="font-bold">{project.title.toLowerCase()}</span>{" "}
                 {project.description}
               </p>
+              {project.websiteUrl && (
+                <div className="mb-10">
+                  <div className="text-[10px] md:text-xs text-gray-500 font-bold uppercase tracking-widest mb-2">
+                    Link
+                  </div>
+                  <a
+                    href={project.websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-2xl md:text-3xl font-black text-[#1A1A1A] tracking-tighter cursor-pointer hover:opacity-70 transition-opacity w-fit"
+                  >
+                    Visit Website
+                  </a>
+                </div>
+              )}
               <div>
                 <div className="text-[10px] md:text-xs text-gray-500 font-bold uppercase tracking-widest mb-2">
                   Contact
