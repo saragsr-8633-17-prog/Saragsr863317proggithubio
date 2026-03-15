@@ -106,7 +106,7 @@ const PROJECTS: Record<string, ProjectData> = {
         vstuImage4,
         vstuImage5,
       ],
-    nextProject: { title: "AETHER UI", slug: "aether-ui" },
+    nextProject: { title: "PSI-LAB", slug: "psi-lab" },
   },
   "aether-ui": {
     title: "AETHER UI",
