@@ -118,12 +118,12 @@ const PROJECTS: Record<string, ProjectData> = {
   },
   "prestige-addis-v1": {
     title: "Prestige addis V1",
-    subtitle: "A polished mobile-first interface",
-    category: ["UI/UX DESIGN", "MOBILE APP", "CLIENT WORK"],
-    year: "2026",
+    subtitle: "Spotlighting Creative Culture",
+    category: ["UI/UX DESIGN", "WEB DESIGN", "CLIENT WORK"],
+    year: "2024",
     type: "CLIENT WORK",
     description:
-      "is a UI/UX concept focused on cleaner onboarding, stronger content hierarchy, and a premium visual language across core mobile screens.",
+    "Web and UI/UX design for Prestige Addis, an entertainment platform that connects established artists with aspiring youth. The site features an engaging, accessible interface designed to highlight cultural stories, live shows, and creative experiences.",
     heroImage: prestigeCoverImage,
     galleryImages: [
       prestigeCoverImage,
