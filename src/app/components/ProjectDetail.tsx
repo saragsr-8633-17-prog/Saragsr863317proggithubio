@@ -92,7 +92,7 @@ const PROJECTS: Record<string, ProjectData> = {
     title: "VSTU",
     subtitle: "A Modern EdTech Interface",
     category: ["MOBILE APP", "UI/UX DESIGN"],
-    year: "2026",
+    year: "2024",
     type: "CLIENT WORK",
     description:
       "UI/UX design for a modern university mobile app developed under Weyra Tech in partnership with Ethio-Telecom. The interface focuses on clearer navigation, better content hierarchy, and faster access to student-facing resources.",
