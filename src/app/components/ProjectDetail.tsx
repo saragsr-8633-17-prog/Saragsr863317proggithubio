@@ -172,14 +172,14 @@ export function ProjectDetail() {
   return (
     <div className="w-full bg-[#ffffff] min-h-screen font-['Montserrat',sans-serif]">
       {/* 1. The Sticky Hero Title (Background) */}
-      <div className="sticky top-20 md:top-24 z-0 w-full flex justify-center pb-16 md:pb-32 px-4">
-        <h1 className="text-center leading-none tracking-tighter font-black text-[#1A1A1A] text-[clamp(48px,12vw,200px)] break-words">
+      <div className="relative lg:sticky lg:top-24 z-0 w-full flex justify-center pb-10 md:pb-16 lg:pb-32 px-4">
+        <h1 className="text-center leading-none tracking-tighter font-black text-[#1A1A1A] text-[clamp(48px,12vw,200px)] break-words transform-gpu">
           {project.title}
         </h1>
       </div>
 
       {/* 2. The Main Content Wrapper (Foreground Curtain) */}
-      <div className="relative z-10 bg-white w-full min-h-screen pt-6 md:pt-8 pb-20 md:pb-32 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
+      <div className="relative z-10 bg-white w-full min-h-screen pt-6 md:pt-8 pb-20 md:pb-32">
 
         {/* 3. Hero Image Block */}
         <div className="w-full flex justify-center bg-[#d9d9d9] px-3 md:px-0 py-4 md:py-8">
@@ -280,13 +280,15 @@ export function ProjectDetail() {
               {project.galleryImages.map((imgSrc, index) => (
                 <div
                   key={index}
-                  className={`${slug === "vstu" || slug === "prestige-addis-v1" ? "" : "aspect-[16/10]"} bg-gray-200 w-full overflow-hidden`}
+                  className={`${slug === "vstu" || slug === "prestige-addis-v1" ? "min-h-[220px] md:min-h-[360px]" : "aspect-[16/10]"} bg-gray-200 w-full overflow-hidden`}
                 >
                   <DynamicImage
                     slotId={`project-${slug}-gallery-${index + 1}`}
                     fallbackSrc={imgSrc}
                     alt={`${project.title} detail ${index + 1}`}
                     className={`${slug === "vstu" || slug === "prestige-addis-v1" ? "w-full h-auto object-contain" : "w-full h-full object-cover"} opacity-90 hover:opacity-100 transition-all duration-700`}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               ))}
