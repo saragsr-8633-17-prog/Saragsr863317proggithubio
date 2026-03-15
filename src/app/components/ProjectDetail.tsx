@@ -108,66 +108,6 @@ const PROJECTS: Record<string, ProjectData> = {
       ],
     nextProject: { title: "PSI-LAB", slug: "psi-lab" },
   },
-  "aether-ui": {
-    title: "AETHER UI",
-    subtitle: "Wellness Through Design",
-    category: ["UI/UX DESIGN", "MOBILE"],
-    year: "2026",
-    type: "CONCEPT",
-    description:
-      "A comprehensive design system and mobile application for a wellness platform. Focused on minimal interaction patterns and fluid motion design, the project explores how digital tools can promote calm and intentional living.",
-    heroImage: "https://images.unsplash.com/photo-1704018731115-cdec06f3f067?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXJrJTIwbWluaW1hbCUyMFVJJTIwZGVzaWduJTIwbW9ja3VwfGVufDF8fHx8MTc3MzE0ODQ3MHww&ixlib=rb-4.1.0&q=80&w=1080",
-    galleryImages: [],
-    nextProject: { title: "PULSE", slug: "pulse" },
-  },
-  pulse: {
-    title: "PULSE",
-    subtitle: "Realtime Creative Dashboards",
-    category: ["WEB DEVELOPMENT", "ANIMATION"],
-    year: "2025",
-    type: "CLIENT WORK",
-    description:
-      "A real-time dashboard interface for monitoring creative workflows. Built with React and animated with custom motion sequences, Pulse turns data into a visual narrative that keeps teams aligned.",
-    heroImage: "https://images.unsplash.com/photo-1713857297379-6fc26e70f581?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxibGFjayUyMHdoaXRlJTIwbW9iaWxlJTIwYXBwJTIwaW50ZXJmYWNlfGVufDF8fHx8MTc3MzE0ODQ3MXww&ixlib=rb-4.1.0&q=80&w=1080",
-    galleryImages: [],
-    nextProject: { title: "FORMA IDENTITY", slug: "forma-identity" },
-  },
-  "forma-identity": {
-    title: "FORMA IDENTITY",
-    subtitle: "Architecture Meets Typography",
-    category: ["BRANDING", "IDENTITY"],
-    year: "2025",
-    type: "CLIENT WORK",
-    description:
-      "Brand identity system for a contemporary architecture studio. Typographic exploration meets spatial design principles, resulting in a visual language that bridges the physical and digital.",
-    heroImage: "https://images.unsplash.com/photo-1727755868081-c25d2b427ce3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsJTIwYnJhbmRpbmclMjBpZGVudGl0eSUyMGRlc2lnbnxlbnwxfHx8fDE3NzMwNjg5NDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    galleryImages: [],
-    nextProject: { title: "DRIFT", slug: "drift" },
-  },
-  drift: {
-    title: "DRIFT",
-    subtitle: "Displacement and Belonging",
-    category: ["2D ANIMATION", "STORYTELLING"],
-    year: "2025",
-    type: "PERSONAL",
-    description:
-      "A short animated film exploring themes of displacement and belonging. Hand-drawn frames composited with digital environments create a dreamlike meditation on what it means to find home.",
-    heroImage: "https://images.unsplash.com/photo-1649000808933-1f4aac7cad9a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXJrJTIwd2Vic2l0ZSUyMGRlc2lnbiUyMHR5cG9ncmFwaHl8ZW58MXx8fHwxNzczMTQ4NDcyfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    galleryImages: [],
-    nextProject: { title: "VOID", slug: "void" },
-  },
-  void: {
-    title: "VOID",
-    subtitle: "Negative Space as Narrative",
-    category: ["UI/UX DESIGN", "DARK MODE"],
-    year: "2024",
-    type: "CONCEPT",
-    description:
-      "Dark-themed portfolio template designed for photographers and visual artists. Emphasis on negative space and content hierarchy creates an immersive viewing experience that foregrounds the work itself.",
-    heroImage: "https://images.unsplash.com/photo-1688141585146-1fb4a1358c87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGdlb21ldHJpYyUyMGRhcmslMjBhcnR3b3JrfGVufDF8fHx8MTc3MzE0ODQ3NXww&ixlib=rb-4.1.0&q=80&w=1080",
-    galleryImages: [],
-    nextProject: { title: "PSI-LAB", slug: "psi-lab" },
-  },
 };
 
 // Get all project slugs for cycling
