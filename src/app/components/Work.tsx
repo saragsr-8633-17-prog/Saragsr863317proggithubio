@@ -5,12 +5,12 @@ import { Link } from "react-router";
 const PROJECTS = [
   {
     id: "01",
-    title: "ISIIPE",
-    slug: "isiipe",
+    title: "Selam Tesfaye – Personal Brand Website",
+    slug: "selam-tesfaye-personal-brand-website",
     category: "WEB DEVELOPMENT",
     year: "2025",
     description:
-      "A modern web design and development project for ISIIPE focused on accessibility, clear navigation, and a strong digital presence.",
+      "A personal brand website for Selam Tesfaye, designed and developed for ISIIPE with a focus on accessibility, clear navigation, and a refined digital presence.",
     tags: ["WEB DESIGN", "UI/UX", "CLIENT"],
     image: "/images/selam1/Home.jpg",
   },
@@ -46,6 +46,17 @@ const PROJECTS = [
       "UI/UX exploration for Prestige Addis V1 focused on a modern interface system, stronger visual hierarchy, and clear interaction flow.",
     tags: ["UI/UX", "WEB DESIGN", "CONCEPT"],
     image: "/images/prestige%20v1/prestige-cover.png",
+  },
+  {
+    id: "05",
+    title: "Dawit Tsige – Personal Brand Website",
+    slug: "dawit-tsige-personal-brand-website",
+    category: "WEB DEVELOPMENT",
+    year: "2026",
+    description:
+      "A personal brand website designed and developed for Dawit Tsige, focused on strong storytelling, a clear content hierarchy, and a polished digital identity.",
+    tags: ["PERSONAL BRAND", "WEB DESIGN", "CLIENT"],
+    image: "/images/DAWIT/DAWIT-COVER.png",
   },
 ];
 

@@ -28,6 +28,13 @@ const prestigeImage4 = "/images/prestige%20v1/4.png";
 const prestigeImage5 = "/images/prestige%20v1/5.png";
 const prestigeImage6 = "/images/prestige%20v1/6.png";
 
+const dawitCoverImage = "/images/DAWIT/DAWIT-COVER.png";
+const dawitImage1 = "/images/DAWIT/1.png";
+const dawitImage2 = "/images/DAWIT/2.png";
+const dawitImage3 = "/images/DAWIT/3.png";
+const dawitImage4 = "/images/DAWIT/4.png";
+const dawitImage5 = "/images/DAWIT/5.png";
+
 // ---------- project data ----------
 
 interface ProjectData {
@@ -79,9 +86,9 @@ const PROJECTS: Record<string, ProjectData> = {
     ],
     nextProject: { title: "VSTU", slug: "vstu" },
   },
-  isiipe: {
-    title: "ISIIPE",
-    subtitle: "A Refined Digital Identity",
+  "selam-tesfaye-personal-brand-website": {
+    title: "Selam Tesfaye",
+    subtitle: "Personal Brand Website",
     category: ["UI/UX DESIGN", "CLIENT WORK"],
     year: "2025",
     type: "CLIENT WORK",
@@ -134,7 +141,32 @@ const PROJECTS: Record<string, ProjectData> = {
       prestigeImage5,
       prestigeImage6,
     ],
-    nextProject: { title: "ISIIPE", slug: "isiipe" },
+    nextProject: {
+      title: "Dawit Tsige – Personal Brand Website",
+      slug: "dawit-tsige-personal-brand-website",
+    },
+  },
+  "dawit-tsige-personal-brand-website": {
+    title: "Dawit Tsige",
+    subtitle: "Personal Brand Website",
+    category: ["WEB DESIGN", "UI/UX DESIGN", "CLIENT WORK"],
+    year: "2025",
+    type: "CLIENT WORK",
+    description:
+      "is a personal brand website crafted to present Dawit's story, services, and portfolio with clarity. The project focused on clean visual structure, smooth navigation, and a conversion-friendly layout that strengthens online presence.",
+    heroImage: dawitCoverImage,
+    galleryImages: [
+      dawitCoverImage,
+      dawitImage1,
+      dawitImage2,
+      dawitImage3,
+      dawitImage4,
+      dawitImage5,
+    ],
+    nextProject: {
+      title: "Selam Tesfaye – Personal Brand Website",
+      slug: "selam-tesfaye-personal-brand-website",
+    },
   },
 };
 
@@ -191,7 +223,7 @@ export function ProjectDetail() {
                 slotId={`project-${slug}-hero`}
                 fallbackSrc={project.heroImage}
                 alt={`${project.title} hero`}
-                className={`w-full h-full ${(slug === "isiipe" || slug === "vstu" || slug === "prestige-addis-v1") ? "object-contain" : "object-cover"}`}
+                className={`w-full h-full ${(slug === "selam-tesfaye-personal-brand-website" || slug === "vstu" || slug === "prestige-addis-v1" || slug === "dawit-tsige-personal-brand-website") ? "object-contain" : "object-cover"}`}
               />
             </div>
           ) : (
@@ -280,13 +312,13 @@ export function ProjectDetail() {
               {project.galleryImages.map((imgSrc, index) => (
                 <div
                   key={index}
-                  className={`${slug === "vstu" || slug === "prestige-addis-v1" ? "min-h-[220px] md:min-h-[360px]" : "aspect-[16/10]"} bg-gray-200 w-full overflow-hidden`}
+                  className={`${slug === "vstu" || slug === "prestige-addis-v1" || slug === "dawit-tsige-personal-brand-website" ? "min-h-[220px] md:min-h-[360px]" : "aspect-[16/10]"} bg-gray-200 w-full overflow-hidden`}
                 >
                   <DynamicImage
                     slotId={`project-${slug}-gallery-${index + 1}`}
                     fallbackSrc={imgSrc}
                     alt={`${project.title} detail ${index + 1}`}
-                    className={`${slug === "vstu" || slug === "prestige-addis-v1" ? "w-full h-auto object-contain" : "w-full h-full object-cover"} opacity-90 hover:opacity-100 transition-all duration-700`}
+                    className={`${slug === "vstu" || slug === "prestige-addis-v1" || slug === "dawit-tsige-personal-brand-website" ? "w-full h-auto object-contain" : "w-full h-full object-cover"} opacity-90 hover:opacity-100 transition-all duration-700`}
                     loading="lazy"
                     decoding="async"
                   />
