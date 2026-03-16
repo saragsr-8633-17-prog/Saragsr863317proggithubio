@@ -199,12 +199,33 @@ const PROJECTS: Record<string, ProjectData> = {
   },
 };
 
-// Get all project slugs for cycling
-const PROJECT_SLUGS = Object.keys(PROJECTS);
+const PROJECT_ROTATION: Array<{ slug: string; title: string }> = [
+  {
+    slug: "selam-tesfaye-personal-brand-website",
+    title: "Selam Tesfaye – Personal Brand Website",
+  },
+  { slug: "psi-lab", title: "PSI-LAB" },
+  { slug: "vstu", title: "VSTU" },
+  { slug: "prestige-addis-v1", title: "Prestige Addis V1" },
+  { slug: "prestige-addis-editorial", title: "Prestige Addis Editorial" },
+  {
+    slug: "dawit-tsige-personal-brand-website",
+    title: "Dawit Tsige – Personal Brand Website",
+  },
+];
 
 export function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
   const project = slug ? PROJECTS[slug] : undefined;
+
+  const rotationIndex = slug
+    ? PROJECT_ROTATION.findIndex((item) => item.slug === slug)
+    : -1;
+
+  const rotatedNextProject =
+    rotationIndex >= 0
+      ? PROJECT_ROTATION[(rotationIndex + 1) % PROJECT_ROTATION.length]
+      : project?.nextProject ?? null;
 
   if (!project) {
     return (
@@ -363,14 +384,14 @@ export function ProjectDetail() {
         )}
 
         {/* 6. Next Project Footer */}
-        {project.nextProject && (
+        {rotatedNextProject && (
           <div className="w-full mt-20 md:mt-32 pt-12 md:pt-16 flex flex-col items-center justify-center border-t border-gray-100 px-4">
             <div className="text-[10px] md:text-xs text-gray-500 font-bold uppercase tracking-widest mb-4">
               (More Projects)
             </div>
-            <Link to={`/work/${project.nextProject.slug}`} className="group">
+            <Link to={`/work/${rotatedNextProject.slug}`} className="group">
               <h2 className="text-center leading-none tracking-tighter font-black text-[#1A1A1A] text-[clamp(42px,15vw,180px)] group-hover:text-gray-300 transition-colors duration-500 cursor-pointer break-words">
-                {project.nextProject.title}
+                {rotatedNextProject.title}
               </h2>
             </Link>
           </div>
